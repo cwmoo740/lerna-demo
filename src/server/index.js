@@ -1,4 +1,5 @@
 import express from 'express';
+import opn from 'opn';
 import dev from 'webpack-dev-middleware';
 import webpack from 'webpack';
 import config from './webpack';
@@ -29,4 +30,11 @@ server.get('/', (req, res) => {
 
 const port = process.env.npm_package_config_port;
 
-server.listen(port, () => console.log(`listening on port ${port}`));
+server.listen(port, (err) => {
+    if (err) {
+        console.error(err);
+        process.exit(1);
+    }
+    console.log(`listening on port ${port}`);
+    opn(`http://localhost:${port}`);
+});

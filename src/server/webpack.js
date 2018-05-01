@@ -24,7 +24,7 @@ const config = {
                 test: /\.jsx?$/,
                 include: [
                     path.resolve(__dirname, '..', 'client'),
-                    path.resolve(__dirname, '..', 'packages')
+                    path.resolve(__dirname, '..', '..', 'packages')
                 ],
                 use: {
                     loader: 'babel-loader',
